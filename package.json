@@ -1,0 +1,31 @@
+{
+	"name": "typedoc-plugin-ensure-internal",
+	"version": "1.0.0",
+	"description": "Ensures all files are considered internal. This plugin only has any effect when typedoc option `mode` is `file` and `excludeExternals` is `true`.",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/deap82/typedoc-plugin-ensure-internal.git"
+	},
+	"keywords": [
+		"typedoc",
+		"typedocplugin"
+	],
+	"author": "Dan Pettersson",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/deap82/typedoc-plugin-ensure-internal/issues"
+	},
+	"homepage": "https://github.com/deap82/typedoc-plugin-ensure-internal#readme",
+	"peerDependencies": {
+		"typedoc": "0.x"
+	},
+	"devDependencies": {
+		"typedoc": "^0.9.0",
+		"typescript": "^2.6.2"
+	}
+}
