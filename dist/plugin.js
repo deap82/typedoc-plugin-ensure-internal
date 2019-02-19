@@ -1,7 +1,10 @@
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -33,6 +36,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
             return _super !== null && _super.apply(this, arguments) || this;
         }
         EnsureInternalPlugin.prototype.initialize = function () {
+            var _a;
             var options = this.application.options;
             var config = options.getRawValues();
             if (config.excludeExternals && config.mode === 0) {
@@ -43,7 +47,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
             else {
                 this.application.logger.warn('typedoc-plugin-ensure-internal does nothing, review your TypeDoc config.');
             }
-            var _a;
         };
         EnsureInternalPlugin.prototype.onBegin = function (context) {
             var currentDirectory = context.program.getCurrentDirectory().replace(/\\/g, '/') + '/';
