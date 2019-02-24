@@ -20,13 +20,17 @@ export class EnsureInternalPlugin extends ConverterComponent {
 	}
 
 	private onBegin(context: Context) {
-		let currentDirectory = context.program.getCurrentDirectory().replace(/\\/g, '/') + '/';
-		let relativePaths = [];
-		for (var i = 0; i < context.fileNames.length; i++) {
-			if (context.fileNames[i].indexOf(currentDirectory) > -1) {
-				relativePaths.push(context.fileNames[i].replace(currentDirectory, ''));
-			}
-		}
-		context.fileNames = context.fileNames.concat(relativePaths);
+		let currentDirectory = context.program.getCurrentDirectory().replace(/\\/g, '/');
+        let parentDirectory = currentDirectory.substring(0, currentDirectory.lastIndexOf('/') + 1);
+        currentDirectory += '/';
+        let relativePaths = [];
+        for (var i = 0; i < context.fileNames.length; i++) {
+            if (context.fileNames[i].indexOf(currentDirectory) > -1) {
+                relativePaths.push(context.fileNames[i].replace(currentDirectory, ''));
+            } else if (context.fileNames[i].indexOf(parentDirectory) > -1) {
+                relativePaths.push(context.fileNames[i].replace(parentDirectory, '../'));
+            }
+        }
+        context.fileNames = context.fileNames.concat(relativePaths);
 	}
 }
