@@ -28,7 +28,7 @@ let EnsureInternalPlugin = class EnsureInternalPlugin extends components_1.Conve
         let relativePaths = [];
         for (var i = 0; i < context.fileNames.length; i++) {
             if (context.fileNames[i].indexOf(currentDirectory) > -1) {
-                relativePaths.push(context.fileNames[i].replace(currentDirectory, ''));
+                relativePaths.push(context.fileNames[i].replace(currentDirectory, '../VklassFrontEnd/'));
             }
             else if (context.fileNames[i].indexOf(parentDirectory) > -1) {
                 relativePaths.push(context.fileNames[i].replace(parentDirectory, '../'));
